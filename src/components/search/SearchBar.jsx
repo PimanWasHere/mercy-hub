@@ -15,8 +15,8 @@ export default function SearchBar({ initialQuery = "", onSearch, compact = false
 
   if (compact) {
     return (
-      <form onSubmit={handleSubmit} className="relative w-full max-w-xl">
-        <div className={`flex items-center bg-white/80 backdrop-blur-xl border rounded-full px-4 py-2.5 transition-all duration-300 ${isFocused ? 'border-indigo-400 shadow-lg shadow-indigo-100' : 'border-gray-200 shadow-sm'}`}>
+      <form onSubmit={handleSubmit} className="relative w-full">
+        <div className={`flex items-center bg-white border rounded-full px-4 py-2.5 transition-all duration-300 ${isFocused ? 'border-indigo-300 shadow-md shadow-indigo-100/30' : 'border-gray-300 shadow-sm'}`}>
           <Search className="w-4 h-4 text-gray-400 shrink-0" />
           <input
             type="text"
@@ -24,13 +24,10 @@ export default function SearchBar({ initialQuery = "", onSearch, compact = false
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            placeholder="Search the web..."
+            placeholder="Search"
             className="flex-1 bg-transparent outline-none px-3 text-sm text-gray-800 placeholder:text-gray-400"
             autoFocus={autoFocus}
           />
-          <button type="submit" className="p-1.5 bg-indigo-500 rounded-full text-white hover:bg-indigo-600 transition-colors">
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
         </div>
       </form>
     );

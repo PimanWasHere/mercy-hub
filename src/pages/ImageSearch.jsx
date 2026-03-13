@@ -80,15 +80,15 @@ Return as JSON with an "images" array, each with "title" (short title) and "desc
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6">
         {/* Tabs */}
-        <div className="flex items-center gap-4 mb-6 border-b border-gray-100 pb-3">
+        <div className="flex items-center gap-6 mb-6 border-b border-gray-100">
           <button
             onClick={() => navigate(`/SearchResults?q=${encodeURIComponent(query)}&cat=all`)}
-            className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-gray-600 pb-1 px-1 transition-colors"
+            className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 pb-3 px-1 transition-colors"
           >
             <Globe className="w-4 h-4" />
-            Web
+            All
           </button>
-          <button className="flex items-center gap-2 text-sm font-medium text-indigo-600 border-b-2 border-indigo-500 pb-1 px-1">
+          <button className="flex items-center gap-2 text-sm font-medium text-indigo-600 border-b-2 border-indigo-600 pb-3 px-1 -mb-[2px]">
             <ImageIcon className="w-4 h-4" />
             Images
           </button>

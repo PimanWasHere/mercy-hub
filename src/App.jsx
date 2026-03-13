@@ -10,6 +10,8 @@ import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import ImageSearch from './pages/ImageSearch';
 import Profile from './pages/Profile';
+import Settings from './pages/Settings';
+import Hmail from './pages/Hmail';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -38,6 +40,8 @@ const AuthenticatedApp = () => {
       <Route path="/SearchResults" element={<SearchResults />} />
       <Route path="/ImageSearch" element={<ImageSearch />} />
       <Route path="/Profile" element={<Profile />} />
+      <Route path="/Settings" element={<Settings />} />
+      <Route path="/Hmail" element={<Hmail />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

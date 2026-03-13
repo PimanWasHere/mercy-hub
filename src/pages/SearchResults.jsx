@@ -91,23 +91,20 @@ Return a JSON object with:
       <Navbar showSearch searchQuery={query} onSearch={handleSearch} />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
-        <div className="mb-6 flex items-center gap-4">
-          <CategoryPills active={category} onSelect={handleCategoryChange} />
-        </div>
-
         {/* Tabs */}
-        <div className="flex items-center gap-4 mb-6 border-b border-gray-100 pb-3">
-          <button className="flex items-center gap-2 text-sm font-medium text-indigo-600 border-b-2 border-indigo-500 pb-1 px-1">
+        <div className="flex items-center gap-6 mb-6 border-b border-gray-100">
+          <button className="flex items-center gap-2 text-sm font-medium text-indigo-600 border-b-2 border-indigo-600 pb-3 px-1 -mb-[2px]">
             <Globe className="w-4 h-4" />
-            Web
+            All
           </button>
           <button
             onClick={() => navigate(`/ImageSearch?q=${encodeURIComponent(query)}`)}
-            className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-gray-600 pb-1 px-1 transition-colors"
+            className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 pb-3 px-1 transition-colors"
           >
             <Image className="w-4 h-4" />
             Images
           </button>
+          <CategoryPills active={category} onSelect={handleCategoryChange} compact />
         </div>
 
         {/* Loading */}

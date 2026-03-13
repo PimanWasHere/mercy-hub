@@ -10,7 +10,32 @@ const categories = [
   { id: "health", label: "Health", icon: Heart },
 ];
 
-export default function CategoryPills({ active = "all", onSelect }) {
+export default function CategoryPills({ active = "all", onSelect, compact = false }) {
+  if (compact) {
+    return (
+      <div className="flex items-center gap-2 overflow-x-auto">
+        {categories.slice(1).map((cat) => {
+          const Icon = cat.icon;
+          const isActive = active === cat.id;
+          return (
+            <button
+              key={cat.id}
+              onClick={() => onSelect(cat.id)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
+                isActive
+                  ? "bg-indigo-100 text-indigo-700"
+                  : "text-gray-600 hover:bg-gray-100"
+              }`}
+            >
+              <Icon className="w-3 h-3" />
+              {cat.label}
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
