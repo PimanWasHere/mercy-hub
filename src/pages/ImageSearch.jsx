@@ -15,55 +15,63 @@ export default function ImageSearch() {
   const [isLoading, setIsLoading] = useState(false);
 
   const doSearch = async (q) => {
-    if (!q.trim()) return;
+    if (!q || !q.trim()) {
+      setIsLoading(false);
+      return;
+    }
+    
     setIsLoading(true);
     setImages([]);
 
-    const res = await base44.integrations.Core.InvokeLLM({
-      prompt: `Generate a list of 9 detailed image descriptions related to: "${q}". 
+    try {
+      const res = await base44.integrations.Core.InvokeLLM({
+        prompt: `Generate a list of 9 detailed image descriptions related to: "${q}". 
 Each description should be specific enough to generate a unique image.
 Return as JSON with an "images" array, each with "title" (short title) and "description" (detailed visual description for image generation).`,
-      response_json_schema: {
-        type: "object",
-        properties: {
-          images: {
-            type: "array",
-            items: {
-              type: "object",
-              properties: {
-                title: { type: "string" },
-                description: { type: "string" }
+        response_json_schema: {
+          type: "object",
+          properties: {
+            images: {
+              type: "array",
+              items: {
+                type: "object",
+                properties: {
+                  title: { type: "string" },
+                  description: { type: "string" }
+                }
               }
             }
           }
         }
-      }
-    });
-
-    const imageList = res.images || [];
-    setImages(imageList.map((img) => ({ ...img, url: null, loading: true })));
-
-    // Generate images in parallel (3 at a time)
-    for (let i = 0; i < imageList.length; i += 3) {
-      const batch = imageList.slice(i, i + 3);
-      const promises = batch.map((img) =>
-        base44.integrations.Core.GenerateImage({ prompt: img.description })
-      );
-      const results = await Promise.all(promises);
-      results.forEach((result, j) => {
-        setImages((prev) => {
-          const updated = [...prev];
-          updated[i + j] = { ...updated[i + j], url: result.url, loading: false };
-          return updated;
-        });
       });
-    }
 
-    setIsLoading(false);
+      const imageList = res.images || [];
+      setImages(imageList.map((img) => ({ ...img, url: null, loading: true })));
+
+      // Generate images in parallel (3 at a time)
+      for (let i = 0; i < imageList.length; i += 3) {
+        const batch = imageList.slice(i, i + 3);
+        const promises = batch.map((img) =>
+          base44.integrations.Core.GenerateImage({ prompt: img.description })
+        );
+        const results = await Promise.all(promises);
+        results.forEach((result, j) => {
+          setImages((prev) => {
+            const updated = [...prev];
+            updated[i + j] = { ...updated[i + j], url: result.url, loading: false };
+            return updated;
+          });
+        });
+      }
+    } catch (error) {
+      console.error("Image search error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
-    if (initialQuery) {
+    if (initialQuery && initialQuery.trim()) {
       doSearch(initialQuery);
     }
   }, []);

@@ -20,13 +20,18 @@ export default function SearchResults() {
   const [isLoading, setIsLoading] = useState(false);
 
   const doSearch = async (q, cat) => {
-    if (!q.trim()) return;
+    if (!q || !q.trim()) {
+      setIsLoading(false);
+      return;
+    }
+    
     setIsLoading(true);
     setResults([]);
     setAiSummary("");
 
-    const catContext = cat !== "all" ? ` Focus on ${cat} related results.` : "";
-    const prompt = `Search the web for: "${q}".${catContext}
+    try {
+      const catContext = cat !== "all" ? ` Focus on ${cat} related results.` : "";
+      const prompt = `Search the web for: "${q}".${catContext}
 
 Return a JSON object with:
 - summary: a 2-3 sentence AI summary of the topic
@@ -35,39 +40,43 @@ Return a JSON object with:
   - url: a plausible URL
   - snippet: a 2-3 sentence description`;
 
-    const res = await base44.integrations.Core.InvokeLLM({
-      prompt,
-      add_context_from_internet: true,
-      response_json_schema: {
-        type: "object",
-        properties: {
-          summary: { type: "string" },
-          results: {
-            type: "array",
-            items: {
-              type: "object",
-              properties: {
-                title: { type: "string" },
-                url: { type: "string" },
-                snippet: { type: "string" }
+      const res = await base44.integrations.Core.InvokeLLM({
+        prompt,
+        add_context_from_internet: true,
+        response_json_schema: {
+          type: "object",
+          properties: {
+            summary: { type: "string" },
+            results: {
+              type: "array",
+              items: {
+                type: "object",
+                properties: {
+                  title: { type: "string" },
+                  url: { type: "string" },
+                  snippet: { type: "string" }
+                }
               }
             }
           }
-        }
-      },
-      model: "gemini_3_flash"
-    });
+        },
+        model: "gemini_3_flash"
+      });
 
-    setAiSummary(res.summary || "");
-    setResults(res.results || []);
-    setIsLoading(false);
+      setAiSummary(res.summary || "");
+      setResults(res.results || []);
 
-    // Save to history
-    base44.entities.SearchHistory.create({ query: q, category: cat }).catch(() => {});
+      // Save to history
+      base44.entities.SearchHistory.create({ query: q, category: cat }).catch(() => {});
+    } catch (error) {
+      console.error("Search error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
-    if (initialQuery) {
+    if (initialQuery && initialQuery.trim()) {
       doSearch(initialQuery, initialCat);
     }
   }, []);
