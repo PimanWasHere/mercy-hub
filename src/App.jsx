@@ -9,6 +9,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import ImageSearch from './pages/ImageSearch';
+import ReverseSearch from './pages/ReverseSearch';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Hmail from './pages/Hmail';
@@ -39,6 +40,7 @@ const AuthenticatedApp = () => {
       <Route path="/Home" element={<Home />} />
       <Route path="/SearchResults" element={<SearchResults />} />
       <Route path="/ImageSearch" element={<ImageSearch />} />
+      <Route path="/ReverseSearch" element={<ReverseSearch />} />
       <Route path="/Profile" element={<Profile />} />
       <Route path="/Settings" element={<Settings />} />
       <Route path="/Hmail" element={<Hmail />} />

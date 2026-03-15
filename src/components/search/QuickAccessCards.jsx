@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Image, User, Clock, Shield, Zap } from "lucide-react";
+import { Search, Image, User, Clock, Shield, Zap, ScanSearch } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const cards = [
@@ -19,6 +19,14 @@ const cards = [
     color: "from-emerald-500 to-teal-500",
     bg: "bg-emerald-50",
     link: "/ImageSearch?q=beautiful+landscapes"
+  },
+  {
+    title: "Reverse Search",
+    description: "Find similar content with image/video",
+    icon: ScanSearch,
+    color: "from-amber-500 to-orange-500",
+    bg: "bg-amber-50",
+    link: "/ReverseSearch"
   },
   {
     title: "Profile",
@@ -43,7 +51,7 @@ export default function QuickAccessCards() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.5 }}
-        className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
       >
         {cards.map((card) => {
           const Icon = card.icon;

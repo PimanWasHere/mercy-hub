@@ -1,15 +1,15 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Search, Mail, User, Settings, Sparkles, X } from "lucide-react";
+import { Home, Search, Mail, User, Settings, Sparkles, X, ScanSearch } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const menuItems = [
   { icon: Home, label: "Home", link: "/Home", color: "bg-blue-100 text-blue-600" },
   { icon: Search, label: "Search", link: "/SearchResults?q=trending&cat=all", color: "bg-green-100 text-green-600" },
+  { icon: ScanSearch, label: "Reverse", link: "/ReverseSearch", color: "bg-amber-100 text-amber-600" },
   { icon: Mail, label: "Hmail", link: "/Hmail", color: "bg-red-100 text-red-600" },
   { icon: User, label: "Profile", link: "/Profile", color: "bg-purple-100 text-purple-600" },
   { icon: Settings, label: "Settings", link: "/Settings", color: "bg-orange-100 text-orange-600" },
-  { icon: Sparkles, label: "AI Search", link: "/SearchResults?q=AI+powered&cat=technology", color: "bg-indigo-100 text-indigo-600" },
 ];
 
 export default function AppMenu({ isOpen, onClose }) {
