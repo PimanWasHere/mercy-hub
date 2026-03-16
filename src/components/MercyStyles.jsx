@@ -4,7 +4,7 @@ export default function MercyStyles() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Bebas+Neue&display=swap');
         
         :root {
           --bg: #020508;
@@ -38,11 +38,35 @@ export default function MercyStyles() {
           --police-blue: #00d4ff;
         }
         
+        * {
+          scrollbar-width: thin;
+          scrollbar-color: var(--border2) var(--bg);
+        }
+        
+        *::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+        
+        *::-webkit-scrollbar-track {
+          background: var(--bg);
+        }
+        
+        *::-webkit-scrollbar-thumb {
+          background: var(--border2);
+          border-radius: 3px;
+        }
+        
+        *::-webkit-scrollbar-thumb:hover {
+          background: var(--border-bright);
+        }
+        
         body {
           background: var(--bg) !important;
           color: var(--text) !important;
           font-family: var(--font-body) !important;
           cursor: default;
+          overflow-x: hidden;
         }
         
         /* Scanline overlay */
@@ -76,6 +100,16 @@ export default function MercyStyles() {
         @keyframes sweep {
           0% { left: -100%; }
           100% { left: 100%; }
+        }
+        
+        @keyframes shimmer {
+          from { transform: translateX(-100%); }
+          to { transform: translateX(100%); }
+        }
+        
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
         }
         
         /* Mercy UI Utilities */
@@ -161,6 +195,7 @@ export default function MercyStyles() {
           letter-spacing: 0.1em;
           cursor: pointer;
           transition: all 0.2s;
+          text-transform: uppercase;
         }
         .mercy-btn:hover:not(:disabled) {
           border-color: var(--accent);
@@ -170,6 +205,16 @@ export default function MercyStyles() {
         .mercy-btn:disabled {
           opacity: 0.4;
           cursor: not-allowed;
+        }
+        
+        .mercy-btn-primary {
+          background: rgba(0,212,255,0.1);
+          border-color: var(--accent);
+          color: var(--accent);
+        }
+        .mercy-btn-primary:hover:not(:disabled) {
+          background: rgba(0,212,255,0.2);
+          box-shadow: 0 0 20px rgba(0,212,255,0.4);
         }
         
         /* Input Fields */
@@ -189,6 +234,44 @@ export default function MercyStyles() {
         }
         .mercy-input::placeholder {
           color: var(--text-dim);
+        }
+        
+        /* Cards */
+        .mercy-card {
+          background: var(--surface);
+          border: 1px solid var(--border);
+          padding: 16px;
+          transition: all 0.3s;
+          position: relative;
+        }
+        .mercy-card:hover {
+          border-color: var(--border-bright);
+          background: var(--surface2);
+          box-shadow: 0 0 20px rgba(0,212,255,0.1);
+        }
+        
+        /* Badge */
+        .mercy-badge {
+          font-family: var(--font-mono);
+          font-size: 0.5rem;
+          padding: 3px 8px;
+          border: 1px solid currentColor;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+        
+        /* Loading Spinner */
+        .mercy-spinner {
+          width: 40px;
+          height: 40px;
+          border: 3px solid var(--border);
+          border-top-color: var(--accent);
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Home, Search, Image, ScanSearch, User, Settings, Mail, Scale, Users, Network, Shield } from "lucide-react";
+import { Menu, X, Home, Search, Image, ScanSearch, User, Settings, Mail, Scale, Users, Network } from "lucide-react";
+import MercyLogo from "./MercyLogo";
 
 export default function UniversalNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +22,7 @@ export default function UniversalNav() {
 
   const isActive = (path) => {
     if (path === "/Home") return location.pathname === "/" || location.pathname === "/Home";
-    return location.pathname === path || location.pathname.startsWith(path);
+    return location.pathname === path || location.pathname.startsWith(path.split('?')[0]);
   };
 
   return (
@@ -63,21 +64,9 @@ export default function UniversalNav() {
       >
         {/* Header */}
         <div className="px-6 py-6 border-b" style={{ borderColor: 'var(--border)' }}>
-          <div className="flex items-center gap-3 mb-2">
-            <div className="relative w-10 h-10">
-              <div className="absolute inset-0 animate-pulse" style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.3), transparent)' }} />
-              <div className="relative w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle at 35% 35%, #1a5a7a, #051020)', border: '2px solid var(--accent)', boxShadow: '0 0 20px rgba(0,212,255,0.4), inset 0 0 15px rgba(0,212,255,0.1)' }}>
-                <Shield className="w-5 h-5 text-white" />
-              </div>
-            </div>
-            <div>
-              <div className="font-bold font-hud tracking-[0.2em] text-xl" style={{ color: 'var(--accent)', textShadow: '0 0 10px rgba(0,212,255,0.5)' }}>
-                MER<span style={{ color: 'var(--accent2)' }}>CY</span>
-              </div>
-              <div className="font-mono-tech text-[0.5rem] tracking-wider" style={{ color: 'var(--text-dim)' }}>
-                NAVIGATION
-              </div>
-            </div>
+          <MercyLogo size="sm" showSubtext={false} />
+          <div className="font-mono-tech text-[0.5rem] tracking-wider mt-2" style={{ color: 'var(--text-dim)' }}>
+            SYSTEM NAVIGATION
           </div>
         </div>
 
