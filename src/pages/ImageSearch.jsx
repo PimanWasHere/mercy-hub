@@ -83,7 +83,7 @@ Return as JSON with an "images" array, each with "title" (short title) and "desc
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen" style={{ background: 'var(--bg)' }}>
       <Navbar showSearch searchQuery={query} onSearch={handleSearch} />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6">

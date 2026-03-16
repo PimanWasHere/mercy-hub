@@ -29,24 +29,25 @@ const emails = [
 
 export default function Hmail() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen" style={{ background: 'var(--bg)' }}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-red-500 to-pink-500 pt-8 pb-20 px-4 sm:px-6">
+      <div className="pt-8 pb-20 px-4 sm:px-6" style={{ background: 'linear-gradient(135deg, var(--surface), var(--panel))' }}>
         <div className="max-w-4xl mx-auto">
           <Link
             to="/Home"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-sm transition-colors mb-6 font-mono-tech tracking-wider"
+            style={{ color: 'var(--text-dim)' }}
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            BACK TO HOME
           </Link>
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center">
-              <Mail className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 border flex items-center justify-center" style={{ background: 'rgba(0,212,255,0.1)', borderColor: 'var(--accent)' }}>
+              <Mail className="w-6 h-6" style={{ color: 'var(--accent)' }} />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white">Hmail</h1>
-              <p className="text-white/70 mt-1">Your secure email inbox</p>
+              <h1 className="text-3xl font-bold font-hud tracking-wider" style={{ color: 'var(--accent)' }}>HMAIL</h1>
+              <p className="mt-1 font-mono-tech text-sm" style={{ color: 'var(--text-dim)' }}>YOUR SECURE EMAIL INBOX</p>
             </div>
           </div>
         </div>
@@ -58,7 +59,7 @@ export default function Hmail() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-4"
+            className="mercy-panel p-4"
           >
             <div className="space-y-2">
               <SidebarItem icon={Inbox} label="Inbox" count={2} active />

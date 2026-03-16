@@ -32,19 +32,20 @@ export default function Settings() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen" style={{ background: 'var(--bg)' }}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-500 to-violet-500 pt-8 pb-20 px-4 sm:px-6">
+      <div className="pt-8 pb-20 px-4 sm:px-6" style={{ background: 'linear-gradient(135deg, var(--surface), var(--panel))' }}>
         <div className="max-w-2xl mx-auto">
           <Link
             to="/Home"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-sm transition-colors mb-6 font-mono-tech tracking-wider"
+            style={{ color: 'var(--text-dim)' }}
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            BACK TO HOME
           </Link>
-          <h1 className="text-3xl font-bold text-white">Settings</h1>
-          <p className="text-white/70 mt-2">Customize your Mercy Hub experience</p>
+          <h1 className="text-3xl font-bold font-hud tracking-wider" style={{ color: 'var(--accent)' }}>SETTINGS</h1>
+          <p className="mt-2 font-mono-tech text-sm" style={{ color: 'var(--text-dim)' }}>CUSTOMIZE YOUR MERCY HUB EXPERIENCE</p>
         </div>
       </div>
 
