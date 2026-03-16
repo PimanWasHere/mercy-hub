@@ -14,6 +14,7 @@ import ReverseSearch from './pages/ReverseSearch';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Hmail from './pages/Hmail';
+import Dashboard from './pages/Dashboard';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -45,6 +46,7 @@ const AuthenticatedApp = () => {
       <Route path="/Profile" element={<Profile />} />
       <Route path="/Settings" element={<Settings />} />
       <Route path="/Hmail" element={<Hmail />} />
+      <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
