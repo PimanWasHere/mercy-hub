@@ -28,8 +28,13 @@ export default function UniversalHeader({ onMenuToggle }) {
           <div className="relative w-8 h-8">
             <div className="absolute inset-0 animate-pulse" style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.3), transparent)' }} />
             <div className="relative w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle at 35% 35%, #1a5a7a, #051020)', border: '2px solid var(--accent)', boxShadow: '0 0 20px rgba(0,212,255,0.4), inset 0 0 15px rgba(0,212,255,0.1)' }}>
-              <div className="w-4 h-4 border-2 border-white" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}></div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L4 6V12C4 16.5 7 20.5 12 22C17 20.5 20 16.5 20 12V6L12 2Z" stroke="white" strokeWidth="1.5" strokeLinejoin="round" fill="rgba(0,212,255,0.1)"/>
+                <path d="M8 10V16M8 10L12 14L16 10M16 10V16" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </div>
+            <div className="absolute -top-0.5 -left-0.5 w-1.5 h-1.5 border-t border-l" style={{ borderColor: 'var(--accent)' }}></div>
+            <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 border-t border-r" style={{ borderColor: 'var(--accent)' }}></div>
           </div>
           <span className="font-bold hidden sm:block font-hud tracking-[0.2em] text-lg" style={{ color: 'var(--accent)', textShadow: '0 0 10px rgba(0,212,255,0.5)' }}>
             MER<span style={{ color: 'var(--accent2)' }}>CY</span>
