@@ -41,7 +41,7 @@ export default function CategoryPills({ active = "all", onSelect, compact = fals
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4, duration: 0.4 }}
-      className="flex flex-wrap justify-center gap-2 mt-6"
+      className="flex flex-wrap justify-center gap-2 mt-8"
     >
       {categories.map((cat) => {
         const Icon = cat.icon;
@@ -50,11 +50,25 @@ export default function CategoryPills({ active = "all", onSelect, compact = fals
           <button
             key={cat.id}
             onClick={() => onSelect(cat.id)}
-            className={`flex items-center gap-2 px-4 py-2 rounded text-sm font-medium transition-all duration-300 font-mono uppercase tracking-wider ${
-              isActive
-                ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/50 border border-cyan-400/30"
-                : "bg-slate-800/60 backdrop-blur-sm text-slate-400 hover:bg-slate-800 hover:shadow-md border border-slate-700/50 hover:border-cyan-500/30"
-            }`}
+            className="flex items-center gap-2 px-4 py-2 text-xs font-medium transition-all duration-300 font-mono-tech uppercase tracking-[0.15em] border"
+            style={{
+              background: isActive ? 'var(--accent)' : 'rgba(6,13,20,0.6)',
+              borderColor: isActive ? 'rgba(0,212,255,0.3)' : 'var(--border)',
+              color: isActive ? '#000' : 'var(--text)',
+              boxShadow: isActive ? '0 0 20px rgba(0,212,255,0.5)' : 'none'
+            }}
+            onMouseEnter={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.borderColor = 'var(--border-bright)';
+                e.currentTarget.style.background = 'rgba(6,13,20,0.9)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.borderColor = 'var(--border)';
+                e.currentTarget.style.background = 'rgba(6,13,20,0.6)';
+              }
+            }}
           >
             <Icon className="w-3.5 h-3.5" />
             {cat.label}

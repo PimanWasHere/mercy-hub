@@ -34,14 +34,20 @@ export default function SearchBar({ initialQuery = "", onSearch, compact = false
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto">
+    <form onSubmit={handleSubmit} className="w-full max-w-3xl mx-auto">
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className={`relative flex items-center bg-slate-900/90 backdrop-blur-2xl border-2 rounded-lg px-6 py-4 transition-all duration-500 ${isFocused ? 'border-cyan-500/50 shadow-2xl shadow-cyan-500/20 bg-slate-900' : 'border-slate-700/50 shadow-xl shadow-black/30'}`}
+        className="relative flex items-center px-6 py-4 transition-all duration-500 border"
+        style={{
+          background: isFocused ? 'var(--panel)' : 'rgba(6,13,20,0.9)',
+          borderColor: isFocused ? 'var(--border-bright)' : 'var(--border)',
+          boxShadow: isFocused ? '0 0 30px rgba(0,212,255,0.2)' : '0 10px 40px rgba(0,0,0,0.5)'
+        }}
       >
-        <Search className={`w-5 h-5 shrink-0 transition-colors duration-300 ${isFocused ? 'text-cyan-400' : 'text-slate-500'}`} />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[var(--border-bright)] to-transparent"></div>
+        <Search className="w-5 h-5 shrink-0 transition-colors duration-300" style={{ color: isFocused ? 'var(--accent)' : 'var(--text-dim)' }} />
         <input
           type="text"
           value={query}
@@ -49,12 +55,26 @@ export default function SearchBar({ initialQuery = "", onSearch, compact = false
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder="ENTER SEARCH QUERY OR INVESTIGATION PARAMETERS..."
-          className="flex-1 bg-transparent outline-none px-4 text-lg text-cyan-50 placeholder:text-slate-600 font-mono uppercase tracking-wide"
+          className="flex-1 bg-transparent outline-none px-4 text-lg uppercase tracking-wider font-mono-tech"
+          style={{ color: 'var(--text)' }}
           autoFocus={autoFocus}
         />
         <button
           type="submit"
-          className="flex items-center gap-2 bg-cyan-600 text-white px-5 py-2.5 rounded font-medium text-sm hover:bg-cyan-500 transition-all duration-300 shadow-lg shadow-cyan-600/30 hover:shadow-cyan-500/50 uppercase tracking-wider font-mono"
+          className="flex items-center gap-2 px-5 py-2.5 font-medium text-sm uppercase tracking-wider font-mono-tech transition-all duration-300 border"
+          style={{
+            background: 'rgba(0,212,255,0.1)',
+            borderColor: 'var(--accent)',
+            color: 'var(--accent)'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(0,212,255,0.2)';
+            e.currentTarget.style.boxShadow = '0 0 15px rgba(0,212,255,0.4)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'rgba(0,212,255,0.1)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}
         >
           <ArrowRight className="w-4 h-4" />
           Execute

@@ -8,16 +8,19 @@ export default function Navbar({ showSearch = false, searchQuery = "", onSearch 
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-2xl border-b border-cyan-500/20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center gap-4">
+    <nav className="sticky top-0 z-50 backdrop-blur-xl border-b relative" style={{ background: 'rgba(2,5,8,0.95)', borderColor: 'var(--border)' }}>
+      <div className="absolute bottom-[-2px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-30"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center gap-4">
         <Link to="/Home" className="flex items-center gap-2 shrink-0">
           <div className="relative w-8 h-8">
-            <div className="absolute inset-0 bg-cyan-500/20 rounded-full animate-pulse" />
-            <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/50 border border-cyan-400/30">
+            <div className="absolute inset-0 animate-pulse" style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.3), transparent)' }} />
+            <div className="relative w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle at 35% 35%, #1a5a7a, #051020)', border: '2px solid var(--accent)', boxShadow: '0 0 20px rgba(0,212,255,0.4), inset 0 0 15px rgba(0,212,255,0.1)' }}>
               <Shield className="w-4 h-4 text-white" />
             </div>
           </div>
-          <span className="font-bold text-cyan-400 hidden sm:block font-mono uppercase tracking-wider">Mercy Hub</span>
+          <span className="font-bold hidden sm:block font-hud tracking-[0.2em] text-lg" style={{ color: 'var(--accent)', textShadow: '0 0 10px rgba(0,212,255,0.5)' }}>
+            MER<span style={{ color: 'var(--accent2)' }}>CY</span>
+          </span>
         </Link>
 
         {showSearch && (
@@ -27,24 +30,29 @@ export default function Navbar({ showSearch = false, searchQuery = "", onSearch 
         )}
 
         <div className="flex items-center gap-1 ml-auto">
-          <button className="w-9 h-9 rounded hover:bg-cyan-500/10 flex items-center justify-center transition-colors group border border-transparent hover:border-cyan-500/30">
-            <Mic className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 transition-colors" />
+          <button className="w-9 h-9 flex items-center justify-center transition-all group border border-transparent hover:border-[var(--border-bright)] hover:bg-[rgba(0,212,255,0.05)]">
+            <Mic className="w-4 h-4 transition-colors" style={{ color: 'var(--text-dim)' }} />
           </button>
           <Link
             to="/Settings"
-            className="w-9 h-9 rounded hover:bg-cyan-500/10 flex items-center justify-center transition-colors group border border-transparent hover:border-cyan-500/30"
+            className="w-9 h-9 flex items-center justify-center transition-all group border border-transparent hover:border-[var(--border-bright)] hover:bg-[rgba(0,212,255,0.05)]"
           >
-            <Settings className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 transition-colors" />
+            <Settings className="w-4 h-4 transition-colors" style={{ color: 'var(--text-dim)' }} />
           </Link>
           <button 
             onClick={() => setMenuOpen(!menuOpen)}
-            className="w-9 h-9 rounded hover:bg-cyan-500/10 flex items-center justify-center transition-colors group border border-transparent hover:border-cyan-500/30"
+            className="w-9 h-9 flex items-center justify-center transition-all group border border-transparent hover:border-[var(--border-bright)] hover:bg-[rgba(0,212,255,0.05)]"
           >
-            <Grid3x3 className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 transition-colors" />
+            <Grid3x3 className="w-4 h-4 transition-colors" style={{ color: 'var(--text-dim)' }} />
           </button>
           <Link
             to="/Profile"
-            className="w-9 h-9 rounded bg-gradient-to-br from-cyan-600 to-blue-600 flex items-center justify-center text-white font-semibold text-sm hover:shadow-lg hover:shadow-cyan-500/50 transition-all ml-2 border border-cyan-400/30"
+            className="w-9 h-9 flex items-center justify-center text-white font-semibold text-sm transition-all ml-2 border font-hud"
+            style={{ 
+              background: 'radial-gradient(circle at 35% 35%, #1a5a7a, #051020)',
+              borderColor: 'var(--accent)',
+              boxShadow: '0 0 15px rgba(0,212,255,0.3)'
+            }}
           >
             U
           </Link>

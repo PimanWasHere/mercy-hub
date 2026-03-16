@@ -16,43 +16,39 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-        {/* Grid overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
-        {/* Scanning line effect */}
-        <motion.div
-          animate={{ y: [-1000, 1000] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-x-0 h-32 bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent blur-xl"
-        />
-      </div>
+      <div className="grid-bg"></div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-20 sm:pt-32 pb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 relative z-10">
         {/* Logo & Title */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="relative w-16 h-16">
-              <div className="absolute inset-0 bg-cyan-500/20 rounded-full animate-ping" />
-              <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-xl shadow-cyan-500/50 border-2 border-cyan-400/30">
-                <Shield className="w-8 h-8 text-white" />
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="relative w-20 h-20">
+              <div className="absolute inset-0 animate-pulse" style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.2), transparent)' }} />
+              <div className="relative w-20 h-20 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle at 35% 35%, #1a5a7a, #051020)', border: '2px solid var(--accent)', boxShadow: '0 0 30px rgba(0,212,255,0.4), inset 0 0 20px rgba(0,212,255,0.1)' }}>
+                <Shield className="w-10 h-10 text-white" />
               </div>
             </div>
           </div>
-          <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent font-mono">
-              MERCY HUB
-            </span>
+          <h1 className="text-6xl sm:text-7xl font-black tracking-[0.3em] mb-2" style={{ fontFamily: 'var(--font-hud)', color: 'var(--accent)', textShadow: '0 0 20px rgba(0,212,255,0.6), 0 0 40px rgba(0,212,255,0.3)' }}>
+            MER<span style={{ color: 'var(--accent2)', textShadow: '0 0 20px rgba(255,60,60,0.8)' }}>CY</span>
           </h1>
-          <p className="mt-4 text-lg text-slate-400 font-light max-w-md mx-auto font-mono uppercase tracking-wide text-sm">
-            Advanced Intelligence System • Evidence Analysis • Investigation Protocol
+          <p className="text-xs tracking-[0.25em] font-mono-tech" style={{ color: 'var(--text-dim)' }}>
+            CAPITAL COURT AI JUSTICE NETWORK · LOS ANGELES JURISDICTION · BUILD 7.4.1
           </p>
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="px-4 py-1.5 border text-xs tracking-wider font-mono-tech relative overflow-hidden" style={{ borderColor: 'var(--border-bright)', color: 'var(--accent3)' }}>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0,255,136,0.1)] to-transparent animate-[sweep_3s_ease-in-out_infinite]" style={{ left: '-100%' }}></div>
+              ● SYSTEM ACTIVE
+            </div>
+            <div className="px-4 py-1.5 border text-xs tracking-wider font-mono-tech" style={{ borderColor: 'var(--border-bright)', color: 'var(--warn)' }}>
+              ⚡ EVIDENCE ANALYSIS READY
+            </div>
+          </div>
         </motion.div>
 
         {/* Search Bar */}
@@ -60,21 +56,6 @@ export default function Home() {
 
         {/* Category Pills */}
         <CategoryPills active={category} onSelect={setCategory} />
-
-        {/* System Status */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
-          className="flex items-center justify-center gap-4 mt-8 text-sm text-cyan-400/80 font-mono"
-        >
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="uppercase tracking-wider">System Active</span>
-          </div>
-          <div className="w-px h-4 bg-slate-700" />
-          <span className="text-slate-500 uppercase tracking-wider">Analysis Ready</span>
-        </motion.div>
 
         {/* Quick Access */}
         <QuickAccessCards />
