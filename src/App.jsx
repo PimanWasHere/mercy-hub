@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
+import MercyStyles from './components/MercyStyles';
 
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
@@ -52,6 +53,7 @@ const AuthenticatedApp = () => {
 function App() {
   return (
     <AuthProvider>
+      <MercyStyles />
       <QueryClientProvider client={queryClientInstance}>
         <Router>
           <AuthenticatedApp />
