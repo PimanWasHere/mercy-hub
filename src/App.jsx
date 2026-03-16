@@ -15,6 +15,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Hmail from './pages/Hmail';
 import Dashboard from './pages/Dashboard';
+import Conclave from './pages/Conclave';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -47,6 +48,7 @@ const AuthenticatedApp = () => {
       <Route path="/Settings" element={<Settings />} />
       <Route path="/Hmail" element={<Hmail />} />
       <Route path="/Dashboard" element={<Dashboard />} />
+      <Route path="/Conclave" element={<Conclave />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
