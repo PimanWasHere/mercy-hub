@@ -22,6 +22,9 @@ export default function MercyStyles() {
           --font-hud: 'Orbitron', monospace;
           --font-mono: 'Share Tech Mono', monospace;
           --font-body: 'Rajdhani', sans-serif;
+          --gold: #ffcc00;
+          --judge-blue: #003366;
+          --police-blue: #00d4ff;
         }
         
         body {
