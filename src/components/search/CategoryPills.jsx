@@ -50,10 +50,10 @@ export default function CategoryPills({ active = "all", onSelect, compact = fals
           <button
             key={cat.id}
             onClick={() => onSelect(cat.id)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`flex items-center gap-2 px-4 py-2 rounded text-sm font-medium transition-all duration-300 font-mono uppercase tracking-wider ${
               isActive
-                ? "bg-indigo-500 text-white shadow-lg shadow-indigo-200/50"
-                : "bg-white/60 backdrop-blur-sm text-gray-600 hover:bg-white hover:shadow-md border border-white/80"
+                ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/50 border border-cyan-400/30"
+                : "bg-slate-800/60 backdrop-blur-sm text-slate-400 hover:bg-slate-800 hover:shadow-md border border-slate-700/50 hover:border-cyan-500/30"
             }`}
           >
             <Icon className="w-3.5 h-3.5" />

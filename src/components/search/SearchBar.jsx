@@ -39,25 +39,25 @@ export default function SearchBar({ initialQuery = "", onSearch, compact = false
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className={`relative flex items-center bg-white/70 backdrop-blur-2xl border-2 rounded-2xl px-6 py-4 transition-all duration-500 ${isFocused ? 'border-indigo-400 shadow-2xl shadow-indigo-100/50 bg-white/90' : 'border-white/60 shadow-xl shadow-gray-200/30'}`}
+        className={`relative flex items-center bg-slate-900/90 backdrop-blur-2xl border-2 rounded-lg px-6 py-4 transition-all duration-500 ${isFocused ? 'border-cyan-500/50 shadow-2xl shadow-cyan-500/20 bg-slate-900' : 'border-slate-700/50 shadow-xl shadow-black/30'}`}
       >
-        <Sparkles className={`w-5 h-5 shrink-0 transition-colors duration-300 ${isFocused ? 'text-indigo-500' : 'text-gray-300'}`} />
+        <Search className={`w-5 h-5 shrink-0 transition-colors duration-300 ${isFocused ? 'text-cyan-400' : 'text-slate-500'}`} />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          placeholder="Ask anything, search the web..."
-          className="flex-1 bg-transparent outline-none px-4 text-lg text-gray-800 placeholder:text-gray-400 font-light"
+          placeholder="ENTER SEARCH QUERY OR INVESTIGATION PARAMETERS..."
+          className="flex-1 bg-transparent outline-none px-4 text-lg text-cyan-50 placeholder:text-slate-600 font-mono uppercase tracking-wide"
           autoFocus={autoFocus}
         />
         <button
           type="submit"
-          className="flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-500 text-white px-5 py-2.5 rounded-xl font-medium text-sm hover:from-indigo-600 hover:to-violet-600 transition-all duration-300 shadow-lg shadow-indigo-200/50 hover:shadow-indigo-300/50"
+          className="flex items-center gap-2 bg-cyan-600 text-white px-5 py-2.5 rounded font-medium text-sm hover:bg-cyan-500 transition-all duration-300 shadow-lg shadow-cyan-600/30 hover:shadow-cyan-500/50 uppercase tracking-wider font-mono"
         >
-          <Search className="w-4 h-4" />
-          Search
+          <ArrowRight className="w-4 h-4" />
+          Execute
         </button>
       </motion.div>
     </form>

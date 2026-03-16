@@ -18,21 +18,14 @@ export default function Home() {
     <div className="min-h-screen relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-indigo-50/30 to-violet-50/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+        {/* Grid overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
+        {/* Scanning line effect */}
         <motion.div
-          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-1/4 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ x: [0, -20, 0], y: [0, 30, 0] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 right-1/4 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ x: [0, 15, 0], y: [0, 15, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-100/10 rounded-full blur-3xl"
+          animate={{ y: [-1000, 1000] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-x-0 h-32 bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent blur-xl"
         />
       </div>
 
@@ -45,17 +38,20 @@ export default function Home() {
           className="text-center mb-10"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center shadow-xl shadow-indigo-200/50">
-              <Sparkles className="w-7 h-7 text-white" />
+            <div className="relative w-16 h-16">
+              <div className="absolute inset-0 bg-cyan-500/20 rounded-full animate-ping" />
+              <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-xl shadow-cyan-500/50 border-2 border-cyan-400/30">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
             </div>
           </div>
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-gray-900 via-indigo-900 to-violet-900 bg-clip-text text-transparent">
-              Mercy AI
+            <span className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent font-mono">
+              MERCY AI
             </span>
           </h1>
-          <p className="mt-4 text-lg text-gray-500 font-light max-w-md mx-auto">
-            AI-powered search that understands you. Fast, private, intelligent.
+          <p className="mt-4 text-lg text-slate-400 font-light max-w-md mx-auto font-mono uppercase tracking-wide text-sm">
+            Advanced Intelligence System • Evidence Analysis • Investigation Protocol
           </p>
         </motion.div>
 
@@ -65,15 +61,19 @@ export default function Home() {
         {/* Category Pills */}
         <CategoryPills active={category} onSelect={setCategory} />
 
-        {/* Privacy Badge */}
+        {/* System Status */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.4 }}
-          className="flex items-center justify-center gap-2 mt-8 text-sm text-gray-400"
+          className="flex items-center justify-center gap-4 mt-8 text-sm text-cyan-400/80 font-mono"
         >
-          <Shield className="w-4 h-4" />
-          <span>Your searches are private. We don't track or store your data.</span>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="uppercase tracking-wider">System Active</span>
+          </div>
+          <div className="w-px h-4 bg-slate-700" />
+          <span className="text-slate-500 uppercase tracking-wider">Analysis Ready</span>
         </motion.div>
 
         {/* Quick Access */}
