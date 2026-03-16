@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Sparkles, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
 import SearchBar from "../components/search/SearchBar";
 import CategoryPills from "../components/search/CategoryPills";
 import QuickAccessCards from "../components/search/QuickAccessCards";

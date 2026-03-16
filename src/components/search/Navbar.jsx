@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, Image, User, Sparkles, Grid3x3, Mic, Settings } from "lucide-react";
+import { Search, Image, User, Shield, Grid3x3, Mic, Settings } from "lucide-react";
 import SearchBar from "./SearchBar";
 import AppMenu from "./AppMenu";
 
