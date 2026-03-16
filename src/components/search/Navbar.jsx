@@ -17,7 +17,7 @@ export default function Navbar({ showSearch = false, searchQuery = "", onSearch 
               <Shield className="w-4 h-4 text-white" />
             </div>
           </div>
-          <span className="font-bold text-cyan-400 hidden sm:block font-mono uppercase tracking-wider">Mercy AI</span>
+          <span className="font-bold text-cyan-400 hidden sm:block font-mono uppercase tracking-wider">Mercy Hub</span>
         </Link>
 
         {showSearch && (

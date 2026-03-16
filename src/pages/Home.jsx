@@ -47,7 +47,7 @@ export default function Home() {
           </div>
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
             <span className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent font-mono">
-              MERCY AI
+              MERCY HUB
             </span>
           </h1>
           <p className="mt-4 text-lg text-slate-400 font-light max-w-md mx-auto font-mono uppercase tracking-wide text-sm">

@@ -44,7 +44,7 @@ export default function Settings() {
             Back to Home
           </Link>
           <h1 className="text-3xl font-bold text-white">Settings</h1>
-          <p className="text-white/70 mt-2">Customize your Mercy AI experience</p>
+          <p className="text-white/70 mt-2">Customize your Mercy Hub experience</p>
         </div>
       </div>
 
