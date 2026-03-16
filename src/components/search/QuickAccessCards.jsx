@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Image, User, Clock, Shield, Zap, ScanSearch, Scale, Users } from "lucide-react";
+import { Search, Image, User, Clock, Shield, Zap, ScanSearch, Scale, Users, Network } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const cards = [
@@ -52,6 +52,14 @@ const cards = [
     bg: "bg-yellow-50",
     link: "/Conclave"
   },
+  {
+    title: "NEXUS Command",
+    description: "Multi-agency investigation hub",
+    icon: Network,
+    color: "from-cyan-500 to-blue-500",
+    bg: "bg-cyan-50",
+    link: "/Nexus"
+  },
 ];
 
 const features = [
@@ -77,7 +85,7 @@ export default function QuickAccessCards() {
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent to-transparent group-hover:from-indigo-50/50 group-hover:to-violet-50/30 transition-all duration-500" />
                 <div className="relative z-10">
                   <div className={`w-12 h-12 rounded-xl ${card.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className={`w-5 h-5 bg-gradient-to-r ${card.color} bg-clip-text`} style={{ color: card.color.includes('indigo') ? '#6366f1' : card.color.includes('emerald') ? '#10b981' : card.color.includes('amber') ? '#f59e0b' : card.color.includes('red') ? '#ef4444' : card.color.includes('yellow') ? '#eab308' : '#8b5cf6' }} />
+                    <Icon className={`w-5 h-5 bg-gradient-to-r ${card.color} bg-clip-text`} style={{ color: card.color.includes('indigo') ? '#6366f1' : card.color.includes('emerald') ? '#10b981' : card.color.includes('amber') ? '#f59e0b' : card.color.includes('red') ? '#ef4444' : card.color.includes('yellow') ? '#eab308' : card.color.includes('cyan') ? '#06b6d4' : '#8b5cf6' }} />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">{card.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{card.description}</p>
