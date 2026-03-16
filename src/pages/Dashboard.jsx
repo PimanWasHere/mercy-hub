@@ -33,7 +33,7 @@ export default function Dashboard() {
     { delta: -6.8, cls: 'resolved-good', log: 'Nelson property search: stolen compounds + bomb schematics recovered.', hint: "Stolen industrial compounds and detailed bomb construction plans recovered from Nelson's property. This materially shifts culpability away from the defendant." },
     { delta: -4.1, cls: 'resolved-good', log: "Cell tower ping places Nelson at victim residence at 02:08 night of murder.", hint: "Telecom records confirm Nelson's phone connected to a tower adjacent to the victim's residence at the estimated time of death." },
     { delta: +2.5, cls: 'resolved-bad', log: 'Psych profile flagged: alcohol-related aggression incidents on record.', hint: "The defendant's psychological profile reveals documented episodes of aggression correlated with alcohol relapse, elevating behavioral risk probability." },
-    { delta: -3.6, cls: 'resolved-good', log: 'Webb, D. execution record retrieved. Nelson, R. confirmed as brother. Motive: revenge.', hint: 'David Webb — Nelson's brother — was previously executed by Mercy Court. This establishes a clear revenge motive against both the defendant and the justice system.' }
+    { delta: -3.6, cls: 'resolved-good', log: 'Webb, D. execution record retrieved. Nelson, R. confirmed as brother. Motive: revenge.', hint: "David Webb — Nelson's brother — was previously executed by Mercy Court. This establishes a clear revenge motive against both the defendant and the justice system." }
   ];
 
   const EVIDENCE_UI = [
