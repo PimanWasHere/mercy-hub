@@ -14,7 +14,7 @@ export default function Navbar({ showSearch = false, searchQuery = "", onSearch 
           <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-200/50">
             <Sparkles className="w-4 h-4 text-white" />
           </div>
-          <span className="font-bold text-gray-900 hidden sm:block">Nova</span>
+          <span className="font-bold text-gray-900 hidden sm:block">Mercy AI</span>
         </Link>
 
         {showSearch && (

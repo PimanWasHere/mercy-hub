@@ -51,7 +51,7 @@ export default function Home() {
           </div>
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
             <span className="bg-gradient-to-r from-gray-900 via-indigo-900 to-violet-900 bg-clip-text text-transparent">
-              Nova Search
+              Mercy AI
             </span>
           </h1>
           <p className="mt-4 text-lg text-gray-500 font-light max-w-md mx-auto">

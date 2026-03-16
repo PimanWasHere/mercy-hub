@@ -5,9 +5,9 @@ import { ArrowLeft, Mail, Inbox, Send, Star, Trash2, Archive, Clock } from "luci
 
 const emails = [
   {
-    sender: "Nova Search Team",
-    subject: "Welcome to Nova Search!",
-    preview: "Thank you for joining Nova. Here's how to get started...",
+    sender: "Mercy AI Team",
+    subject: "Welcome to Mercy AI!",
+    preview: "Thank you for joining Mercy AI. Here's how to get started...",
     time: "10:30 AM",
     unread: true,
   },
