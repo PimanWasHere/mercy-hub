@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Image, User, Clock, Shield, Zap, ScanSearch } from "lucide-react";
+import { Search, Image, User, Clock, Shield, Zap, ScanSearch, Scale, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const cards = [
@@ -36,6 +36,22 @@ const cards = [
     bg: "bg-violet-50",
     link: "/Profile"
   },
+  {
+    title: "Trial Dashboard",
+    description: "Defendant case trial interface",
+    icon: Scale,
+    color: "from-red-500 to-pink-500",
+    bg: "bg-red-50",
+    link: "/Dashboard"
+  },
+  {
+    title: "Justice Conclave",
+    description: "Authority command center",
+    icon: Users,
+    color: "from-yellow-500 to-amber-500",
+    bg: "bg-yellow-50",
+    link: "/Conclave"
+  },
 ];
 
 const features = [
@@ -51,7 +67,7 @@ export default function QuickAccessCards() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.5 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
       >
         {cards.map((card) => {
           const Icon = card.icon;
@@ -61,7 +77,7 @@ export default function QuickAccessCards() {
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent to-transparent group-hover:from-indigo-50/50 group-hover:to-violet-50/30 transition-all duration-500" />
                 <div className="relative z-10">
                   <div className={`w-12 h-12 rounded-xl ${card.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className={`w-5 h-5 bg-gradient-to-r ${card.color} bg-clip-text`} style={{ color: card.color.includes('indigo') ? '#6366f1' : card.color.includes('emerald') ? '#10b981' : '#8b5cf6' }} />
+                    <Icon className={`w-5 h-5 bg-gradient-to-r ${card.color} bg-clip-text`} style={{ color: card.color.includes('indigo') ? '#6366f1' : card.color.includes('emerald') ? '#10b981' : card.color.includes('amber') ? '#f59e0b' : card.color.includes('red') ? '#ef4444' : card.color.includes('yellow') ? '#eab308' : '#8b5cf6' }} />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">{card.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{card.description}</p>
