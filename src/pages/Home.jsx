@@ -40,7 +40,7 @@ export default function Home() {
     <div className="min-h-screen relative overflow-hidden">
       <div className="grid-bg"></div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-16 relative z-10">
         {/* Logo & Title */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}

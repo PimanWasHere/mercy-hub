@@ -3,8 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Home, Search, Image, ScanSearch, User, Settings, Mail, Scale, Users, Network } from "lucide-react";
 import MercyLogo from "./MercyLogo";
 
-export default function UniversalNav() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function UniversalNav({ isOpen, setIsOpen }) {
   const location = useLocation();
 
   const navItems = [
@@ -27,23 +26,6 @@ export default function UniversalNav() {
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-[999] w-12 h-12 flex items-center justify-center border transition-all"
-        style={{
-          background: 'var(--panel)',
-          borderColor: isOpen ? 'var(--accent)' : 'var(--border)',
-          boxShadow: isOpen ? '0 0 20px rgba(0,212,255,0.3)' : 'none'
-        }}
-      >
-        {isOpen ? (
-          <X className="w-5 h-5" style={{ color: 'var(--accent)' }} />
-        ) : (
-          <Menu className="w-5 h-5" style={{ color: 'var(--text)' }} />
-        )}
-      </button>
-
       {/* Overlay */}
       {isOpen && (
         <div

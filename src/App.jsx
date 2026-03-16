@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import MercyStyles from './components/MercyStyles';
 import UniversalNav from './components/UniversalNav';
+import UniversalHeader from './components/UniversalHeader';
 
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
@@ -21,6 +22,7 @@ import Nexus from './pages/Nexus';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
@@ -41,7 +43,8 @@ const AuthenticatedApp = () => {
 
   return (
     <>
-      <UniversalNav />
+      <UniversalHeader onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
+      <UniversalNav isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       <Routes>
         <Route path="/" element={<Navigate to="/Home" replace />} />
         <Route path="/Home" element={<Home />} />
