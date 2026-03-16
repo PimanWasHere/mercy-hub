@@ -6,6 +6,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import MercyStyles from './components/MercyStyles';
+import UniversalNav from './components/UniversalNav';
 
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
@@ -39,20 +40,23 @@ const AuthenticatedApp = () => {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/Home" replace />} />
-      <Route path="/Home" element={<Home />} />
-      <Route path="/SearchResults" element={<SearchResults />} />
-      <Route path="/ImageSearch" element={<ImageSearch />} />
-      <Route path="/ReverseSearch" element={<ReverseSearch />} />
-      <Route path="/Profile" element={<Profile />} />
-      <Route path="/Settings" element={<Settings />} />
-      <Route path="/Hmail" element={<Hmail />} />
-      <Route path="/Dashboard" element={<Dashboard />} />
-      <Route path="/Conclave" element={<Conclave />} />
-      <Route path="/Nexus" element={<Nexus />} />
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+    <>
+      <UniversalNav />
+      <Routes>
+        <Route path="/" element={<Navigate to="/Home" replace />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/SearchResults" element={<SearchResults />} />
+        <Route path="/ImageSearch" element={<ImageSearch />} />
+        <Route path="/ReverseSearch" element={<ReverseSearch />} />
+        <Route path="/Profile" element={<Profile />} />
+        <Route path="/Settings" element={<Settings />} />
+        <Route path="/Hmail" element={<Hmail />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Conclave" element={<Conclave />} />
+        <Route path="/Nexus" element={<Nexus />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </>
   );
 };
 
