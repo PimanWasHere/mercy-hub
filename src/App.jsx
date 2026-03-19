@@ -44,29 +44,29 @@ const AuthenticatedApp = () => {
   }
 
   return (
-    <>
-      <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <UniversalHeader onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
       <UniversalNav isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       <main className="flex-1">
-      <Routes>
-        <Route path="/" element={<Navigate to="/Home" replace />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/SearchResults" element={<SearchResults />} />
-        <Route path="/ImageSearch" element={<ImageSearch />} />
-        <Route path="/ReverseSearch" element={<ReverseSearch />} />
-        <Route path="/Profile" element={<Profile />} />
-        <Route path="/Settings" element={<Settings />} />
-        <Route path="/Hmail" element={<Hmail />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Conclave" element={<Conclave />} />
-        <Route path="/Nexus" element={<Nexus />} />
-        </main>
-        <Footer />
-        </div>
-        </>  
-        );
-        };
+        <Routes>
+          <Route path="/" element={<Navigate to="/Home" replace />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/SearchResults" element={<SearchResults />} />
+          <Route path="/ImageSearch" element={<ImageSearch />} />
+          <Route path="/ReverseSearch" element={<ReverseSearch />} />
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/Settings" element={<Settings />} />
+          <Route path="/Hmail" element={<Hmail />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Conclave" element={<Conclave />} />
+          <Route path="/Nexus" element={<Nexus />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
 function App() {
   return (
