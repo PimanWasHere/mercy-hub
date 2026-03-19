@@ -47,13 +47,22 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <div className="flex flex-col items-center mb-6">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="relative w-20 h-20">
-                <div className="absolute inset-0 animate-pulse" style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.3), transparent)' }} />
-                <div className="relative w-20 h-20 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle at 35% 35%, #1a5a7a, #051020)', border: '2px solid var(--accent)', boxShadow: '0 0 30px rgba(0,212,255,0.5), inset 0 0 20px rgba(0,212,255,0.1)' }}>
-                  <div className="w-10 h-10 border-2 border-white" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}></div>
-                </div>
+          <div className="flex flex-col items-center mb-8">
+            <div className="relative w-28 h-28 mb-6">
+              <div className="absolute inset-0 rounded-full animate-pulse" style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.4), transparent)' }} />
+              <div className="absolute inset-[-6px] rounded-full border" style={{ borderColor: 'rgba(0,212,255,0.15)' }} />
+              <div className="absolute inset-[-12px] rounded-full border" style={{ borderColor: 'rgba(0,212,255,0.07)' }} />
+              <div className="relative w-28 h-28 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle at 35% 35%, #1a5a7a, #051020)', border: '2px solid var(--accent)', boxShadow: '0 0 50px rgba(0,212,255,0.6), inset 0 0 30px rgba(0,212,255,0.15)' }}>
+                <div className="w-14 h-14 border-2 border-white" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}></div>
+              </div>
+            </div>
+            <div className="font-hud tracking-[0.3em] text-7xl sm:text-8xl leading-none mb-3" style={{ color: 'var(--accent)', textShadow: '0 0 30px rgba(0,212,255,0.8), 0 0 60px rgba(0,212,255,0.3)' }}>
+              MER<span style={{ color: 'var(--accent2)', textShadow: '0 0 30px rgba(255,60,60,0.9)' }}>CY</span>
+            </div>
+            <div className="font-mono-tech text-[0.55rem] tracking-[0.3em]" style={{ color: 'var(--text-dim)' }}>
+              AI JUSTICE NETWORK · LOS ANGELES JURISDICTION
+            </div>
+          </div>
               </div>
               <div className="font-hud tracking-[0.2em] text-6xl" style={{ color: 'var(--accent)', textShadow: '0 0 20px rgba(0,212,255,0.7)' }}>
                 MER<span style={{ color: 'var(--accent2)', textShadow: '0 0 20px rgba(255,60,60,0.9)' }}>CY</span>
