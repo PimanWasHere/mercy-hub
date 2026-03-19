@@ -59,21 +59,12 @@ export default function Home() {
             <div className="font-hud tracking-[0.3em] text-7xl sm:text-8xl leading-none mb-3" style={{ color: 'var(--accent)', textShadow: '0 0 30px rgba(0,212,255,0.8), 0 0 60px rgba(0,212,255,0.3)' }}>
               MER<span style={{ color: 'var(--accent2)', textShadow: '0 0 30px rgba(255,60,60,0.9)' }}>CY</span>
             </div>
-            <div className="font-mono-tech text-[0.55rem] tracking-[0.3em]" style={{ color: 'var(--text-dim)' }}>
+            <div className="font-mono-tech text-[0.55rem] tracking-[0.3em] mb-6" style={{ color: 'var(--text-dim)' }}>
               AI JUSTICE NETWORK · LOS ANGELES JURISDICTION
             </div>
           </div>
-              </div>
-              <div className="font-hud tracking-[0.2em] text-6xl" style={{ color: 'var(--accent)', textShadow: '0 0 20px rgba(0,212,255,0.7)' }}>
-                MER<span style={{ color: 'var(--accent2)', textShadow: '0 0 20px rgba(255,60,60,0.9)' }}>CY</span>
-              </div>
-            </div>
-            <div className="font-mono-tech text-[0.5rem] tracking-[0.25em]" style={{ color: 'var(--text-dim)' }}>
-              AI JUSTICE NETWORK · LOS ANGELES JURISDICTION
-            </div>
-          </div>
-          
-          <div className="flex items-center justify-center gap-4 mt-6">
+
+          <div className="flex items-center justify-center gap-4">
             <div className="px-5 py-2 border font-mono-tech text-xs tracking-wider relative overflow-hidden" style={{ borderColor: 'var(--border-bright)', color: 'var(--accent3)' }}>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0,255,136,0.1)] to-transparent animate-[sweep_3s_ease-in-out_infinite]" style={{ left: '-100%' }}></div>
               ● SYSTEM ACTIVE
