@@ -9,6 +9,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import MercyStyles from './components/MercyStyles';
 import UniversalNav from './components/UniversalNav';
 import UniversalHeader from './components/UniversalHeader';
+import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
@@ -44,8 +45,10 @@ const AuthenticatedApp = () => {
 
   return (
     <>
+      <div className="min-h-screen flex flex-col">
       <UniversalHeader onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
       <UniversalNav isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+      <main className="flex-1">
       <Routes>
         <Route path="/" element={<Navigate to="/Home" replace />} />
         <Route path="/Home" element={<Home />} />
@@ -58,11 +61,12 @@ const AuthenticatedApp = () => {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Conclave" element={<Conclave />} />
         <Route path="/Nexus" element={<Nexus />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </>
-  );
-};
+        </main>
+        <Footer />
+        </div>
+        </>  
+        );
+        };
 
 function App() {
   return (
