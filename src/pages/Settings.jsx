@@ -1,26 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  ArrowLeft,
-  Shield,
-  Bell,
-  Palette,
-  Globe,
-  Search,
-  Moon,
-  Lock,
-  Eye,
-  History,
-  Database,
-  Zap,
-} from "lucide-react";
-import { Switch } from "@/components/ui/switch";
+import { ArrowLeft, Shield, Bell, Globe, Search, Moon, Lock, Eye, History, Database, Zap } from "lucide-react";
 
 export default function Settings() {
   const [settings, setSettings] = useState({
     safeSearch: true,
-    darkMode: false,
+    darkMode: true,
     notifications: true,
     saveHistory: true,
     autoSuggest: true,
@@ -32,137 +18,65 @@ export default function Settings() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--bg)' }}>
-      {/* Header */}
-      <div className="pt-8 pb-20 px-4 sm:px-6" style={{ background: 'linear-gradient(135deg, var(--surface), var(--panel))' }}>
-        <div className="max-w-2xl mx-auto">
-          <Link
-            to="/Home"
-            className="inline-flex items-center gap-2 text-sm transition-colors mb-6 font-mono-tech tracking-wider"
-            style={{ color: 'var(--text-dim)' }}
-          >
-            <ArrowLeft className="w-4 h-4" />
-            BACK TO HOME
-          </Link>
-          <h1 className="text-3xl font-bold font-hud tracking-wider" style={{ color: 'var(--accent)' }}>SETTINGS</h1>
-          <p className="mt-2 font-mono-tech text-sm" style={{ color: 'var(--text-dim)' }}>CUSTOMIZE YOUR MERCY HUB EXPERIENCE</p>
+    <div className="min-h-screen relative" style={{ background: 'var(--bg)' }}>
+      <div className="grid-bg"></div>
+
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 relative z-10">
+        <Link to="/Home" className="inline-flex items-center gap-2 text-xs font-mono-tech tracking-wider mb-8 transition-colors hover:text-accent" style={{ color: 'var(--text-dim)' }}>
+          <ArrowLeft className="w-4 h-4" />
+          BACK TO HOME
+        </Link>
+
+        <div className="mb-8">
+          <h1 className="font-hud text-3xl tracking-[0.2em] mb-1" style={{ color: 'var(--accent)', textShadow: '0 0 20px rgba(0,212,255,0.5)' }}>SYSTEM CONFIG</h1>
+          <p className="font-mono-tech text-xs tracking-wider" style={{ color: 'var(--text-dim)' }}>CONFIGURE MERCY AI PARAMETERS</p>
         </div>
-      </div>
 
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 -mt-12">
         {/* Privacy & Security */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-6 mb-6"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center">
-              <Shield className="w-5 h-5 text-indigo-600" />
-            </div>
-            <div>
-              <h2 className="font-semibold text-gray-900">Privacy & Security</h2>
-              <p className="text-sm text-gray-500">Control your data and privacy</p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <SettingRow
-              icon={Lock}
-              title="Safe Search"
-              description="Filter explicit content from results"
-              checked={settings.safeSearch}
-              onToggle={() => toggleSetting("safeSearch")}
-            />
-            <SettingRow
-              icon={Eye}
-              title="Private Mode"
-              description="Don't save searches or browsing history"
-              checked={settings.privateMode}
-              onToggle={() => toggleSetting("privateMode")}
-            />
-            <SettingRow
-              icon={History}
-              title="Save History"
-              description="Keep track of your searches"
-              checked={settings.saveHistory}
-              onToggle={() => toggleSetting("saveHistory")}
-            />
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mercy-panel mb-4">
+          <div className="mercy-panel-title"><span className="mercy-dot red"></span><strong>PRIVACY & SECURITY</strong></div>
+          <div className="p-2 space-y-1">
+            <SettingRow icon={Lock} title="Safe Search" description="Filter explicit content from results" checked={settings.safeSearch} onToggle={() => toggleSetting("safeSearch")} />
+            <SettingRow icon={Eye} title="Private Mode" description="Disable search & browsing history logging" checked={settings.privateMode} onToggle={() => toggleSetting("privateMode")} />
+            <SettingRow icon={History} title="Save History" description="Persist search activity records" checked={settings.saveHistory} onToggle={() => toggleSetting("saveHistory")} />
           </div>
         </motion.div>
 
         {/* Search Preferences */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-6 mb-6"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
-              <Search className="w-5 h-5 text-emerald-600" />
-            </div>
-            <div>
-              <h2 className="font-semibold text-gray-900">Search Preferences</h2>
-              <p className="text-sm text-gray-500">Customize how you search</p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <SettingRow
-              icon={Zap}
-              title="Auto-Suggest"
-              description="Show search suggestions as you type"
-              checked={settings.autoSuggest}
-              onToggle={() => toggleSetting("autoSuggest")}
-            />
-            <SettingRow
-              icon={Globe}
-              title="Region"
-              description="United States"
-              isLink
-            />
-            <SettingRow
-              icon={Database}
-              title="Results per page"
-              description="10 results"
-              isLink
-            />
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mercy-panel mb-4">
+          <div className="mercy-panel-title"><span className="mercy-dot blue"></span><strong>SEARCH PARAMETERS</strong></div>
+          <div className="p-2 space-y-1">
+            <SettingRow icon={Zap} title="Auto-Suggest" description="Show query suggestions in real-time" checked={settings.autoSuggest} onToggle={() => toggleSetting("autoSuggest")} />
+            <SettingRow icon={Globe} title="Region" description="United States / LA-04 Jurisdiction" isLink />
+            <SettingRow icon={Database} title="Results Per Page" description="10 results per query" isLink />
           </div>
         </motion.div>
 
         {/* Appearance */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-6 mb-12"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center">
-              <Palette className="w-5 h-5 text-violet-600" />
-            </div>
-            <div>
-              <h2 className="font-semibold text-gray-900">Appearance</h2>
-              <p className="text-sm text-gray-500">Personalize the look and feel</p>
-            </div>
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mercy-panel mb-4">
+          <div className="mercy-panel-title"><span className="mercy-dot purple"></span><strong>DISPLAY SETTINGS</strong></div>
+          <div className="p-2 space-y-1">
+            <SettingRow icon={Moon} title="Dark Mode" description="Enforce dark interface (recommended)" checked={settings.darkMode} onToggle={() => toggleSetting("darkMode")} />
+            <SettingRow icon={Bell} title="Notifications" description="Receive system alerts and updates" checked={settings.notifications} onToggle={() => toggleSetting("notifications")} />
+            <SettingRow icon={Search} title="Search Animations" description="Enable animated search results" checked={settings.autoSuggest} onToggle={() => toggleSetting("autoSuggest")} />
           </div>
+        </motion.div>
 
-          <div className="space-y-4">
-            <SettingRow
-              icon={Moon}
-              title="Dark Mode"
-              description="Switch to dark theme"
-              checked={settings.darkMode}
-              onToggle={() => toggleSetting("darkMode")}
-            />
-            <SettingRow
-              icon={Bell}
-              title="Notifications"
-              description="Get updates and alerts"
-              checked={settings.notifications}
-              onToggle={() => toggleSetting("notifications")}
-            />
+        {/* System Info */}
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="mercy-panel">
+          <div className="mercy-panel-title"><span className="mercy-dot accent"></span><strong>SYSTEM INFORMATION</strong></div>
+          <div className="p-4 grid grid-cols-2 gap-3">
+            {[
+              { label: "BUILD VERSION", value: "7.4.1" },
+              { label: "NETWORK", value: "MERCY-AI" },
+              { label: "JURISDICTION", value: "LA-04" },
+              { label: "STATUS", value: "OPERATIONAL" },
+            ].map(({ label, value }) => (
+              <div key={label} className="p-3 border" style={{ background: 'var(--panel)', borderColor: 'var(--border)' }}>
+                <div className="font-mono-tech text-[0.5rem] tracking-wider mb-1" style={{ color: 'var(--text-dim)' }}>{label}</div>
+                <div className="font-mono-tech text-sm" style={{ color: 'var(--accent3)' }}>{value}</div>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>
@@ -172,20 +86,35 @@ export default function Settings() {
 
 function SettingRow({ icon: Icon, title, description, checked, onToggle, isLink = false }) {
   return (
-    <div className="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50 transition-colors">
-      <div className="flex items-center gap-3 flex-1">
-        <Icon className="w-5 h-5 text-gray-400" />
-        <div>
-          <p className="font-medium text-gray-800">{title}</p>
-          <p className="text-sm text-gray-500">{description}</p>
-        </div>
+    <div className="flex items-center gap-4 px-4 py-3 border border-transparent transition-all cursor-pointer group"
+      style={{ borderRadius: 0 }}
+      onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(0,212,255,0.03)'}
+      onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
+    >
+      <Icon className="w-4 h-4 shrink-0" style={{ color: 'var(--text-dim)' }} />
+      <div className="flex-1">
+        <p className="font-body text-sm font-medium" style={{ color: 'var(--text)' }}>{title}</p>
+        <p className="font-mono-tech text-[0.55rem] tracking-wide" style={{ color: 'var(--text-dim)' }}>{description}</p>
       </div>
       {!isLink && onToggle && (
-        <Switch checked={checked} onCheckedChange={onToggle} />
+        <button
+          onClick={onToggle}
+          className="w-10 h-5 relative transition-all shrink-0"
+          style={{
+            background: checked ? 'var(--accent)' : 'var(--border2)',
+            border: `1px solid ${checked ? 'var(--accent)' : 'var(--border2)'}`,
+            boxShadow: checked ? '0 0 10px rgba(0,212,255,0.4)' : 'none',
+          }}
+        >
+          <div className="absolute top-0.5 w-4 h-4 transition-all duration-200" style={{
+            background: checked ? '#000' : 'var(--text-dim)',
+            left: checked ? 'calc(100% - 18px)' : '2px',
+          }}></div>
+        </button>
       )}
       {isLink && (
-        <button className="text-sm text-indigo-500 hover:text-indigo-600 font-medium">
-          Change
+        <button className="font-mono-tech text-xs tracking-wider transition-colors" style={{ color: 'var(--accent)' }}>
+          MODIFY
         </button>
       )}
     </div>
